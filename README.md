@@ -9,7 +9,7 @@ txnModal is under construction.
 * Attachable Hooks for Open and Close events
 
 #### Version
-0.0.1
+0.0.2
 
 #### Prerequisites
 
@@ -24,10 +24,10 @@ txnModal uses Animate.css and Jquery.
 // Make sure you have imported JQuery.js , Animate.css & txnModal.js
 // Init Line. Put this in Document Ready. txnModal will Take care of your DOM.
 $(document).ready(function(){
-    $('#normal-modal').txnModal({ 
-        modalCloseHandlers : ['#closeModalBtn'] 
-    });
-    
+    // Init Line
+    $('#normal-modal').txnModal();
+
+    // On Click Show the Modal
     $('#click-btn').click(function(){
         // Use this to Show Your Modal.
         $('#normal-modal').showModal();
@@ -40,13 +40,13 @@ Above code works for the below HTML Markup:
 <body>
     <!-- Modal Code. Remember Modal is Position Specific. Make sure it is at
          the BODY Level for a full scale Modal -->
-    <div id="normal-modal" class="txn-modal">
-        <button id="closeModalBtn">Close this</button>
+    <div id="normal-modal">
+        <p>
+            This is My Modal!
+        </p>
     </div>
     <!-- Triggering Button -->
-    <div class="row">
-        <button id="click-btn">Normal Modal</button>
-    </div>
+    <button id="click-btn">Normal Modal</button>
 </body>
 ```
 
@@ -57,7 +57,7 @@ Default Settings:
 var defaultOptions = {
     animateIn: 'zoomIn',
     animateOut: 'zoomOut',
-    animateDuration: '0.3s',
+    animateDuration: 0.3,
     modalOverflow: 'auto',
     modalTargetContainer: null,
     modalWrapperClass: 'txn-modal-wrapper',
@@ -66,9 +66,6 @@ var defaultOptions = {
     onClose: function() {}
 };
 ```
-##### [REQUIRED] modalCloseHandlers
-Close Identifiers for the Modal. Specify the Identifiers in JSON Array of Strings.
-
 ##### animateIn
 Refer to Animate.css for Various Types
 
@@ -86,6 +83,10 @@ If you want to open the Modal in any Given HTML Windows / Div. Specify the Ident
 
 ##### modalWrapperClass
 Class for the Wrapper on which animation is performed.
+
+##### modalCloseHandlers
+Close Identifiers for the Modal. Specify the Identifiers in JSON Array of Strings.
+
 
 ##### onOpen
 onOpen Event Hook

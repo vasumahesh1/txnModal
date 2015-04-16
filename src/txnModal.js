@@ -5,7 +5,7 @@
 		var defaultOptions = {
 			animateIn: 'zoomIn',
 			animateOut: 'zoomOut',
-			animateDuration: '0.3s',
+			animateDuration: 0.3,
 			modalOverflow: 'auto',
 			modalTargetContainer: null,
 			modalWrapperClass: 'txn-modal-wrapper',
@@ -14,9 +14,12 @@
 			onClose: function() {}
 		};
 
-		var templateDom = '';
-		var templateDomPart1 = '<div class="';
-		var templateDomPart2 = '"></div>';
+		var templateWrapperDom = '';
+		var templateWrapperDomPart1 = '<div class="';
+		var templateWrapperDomPart2 = '"></div>';
+
+		var fallbackCloseButtonClass = 'txn-modal-close';
+		var fallbackCloseButton = "<button class='" + fallbackCloseButtonClass + "' style='position:absolute;top:10px;right:10px;'>x</button>";
 
 		var modalPlugin = this;
 
@@ -27,29 +30,34 @@
 
 		modalPlugin.init = function() {
 			modalPlugin.finalOptions = $.extend({}, defaultOptions, customOptions);
-			templateDom = templateDomPart1 + modalPlugin.finalOptions.modalWrapperClass + templateDomPart2;
-			$element.wrap(templateDom);
+			templateWrapperDom = templateWrapperDomPart1 + modalPlugin.finalOptions.modalWrapperClass + templateWrapperDomPart2;
+			$element.wrap(templateWrapperDom);
 			var modalCss = getModalCss();
 			for (var cssKey in modalCss) {
 				$element.parent().css(cssKey, modalCss[cssKey]);
 			}
 
-			if(modalPlugin.finalOptions.modalTargetContainer)
-			{
+			if (modalPlugin.finalOptions.modalTargetContainer) {
 				var targetWindow = modalPlugin.finalOptions.modalTargetContainer;
 				var targetHeight = $(targetWindow).css('height');
 				var targetWidth = $(targetWindow).css('width');
 				var targetPos = $(targetWindow).position();
-				$element.parent().css('height' , targetHeight);
-				$element.parent().css('width' , targetWidth);
-				$element.parent().css('top' , targetPos.top);
-				$element.parent().css('left' , targetPos.left);
+				$element.parent().css('height', targetHeight);
+				$element.parent().css('width', targetWidth);
+				$element.parent().css('top', targetPos.top);
+				$element.parent().css('left', targetPos.left);
 
 			}
-
-			for (var closeHandlerKey in modalPlugin.finalOptions.modalCloseHandlers) {
-				console.log('Attaching Handler for : ' + modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]);
-				$(modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]).click(function() {
+			if (modalPlugin.finalOptions.modalCloseHandlers.length != 0) {
+				for (var closeHandlerKey in modalPlugin.finalOptions.modalCloseHandlers) {
+					console.log('Attaching Handler for : ' + modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]);
+					$(modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]).click(function() {
+						modalPlugin.closeModal();
+					});
+				}
+			} else {
+				$element.parent().append(fallbackCloseButton);
+				$('.'+fallbackCloseButtonClass).click(function() {
 					modalPlugin.closeModal();
 				});
 			}
@@ -89,10 +97,10 @@
 			cssObject['left'] = '0px';
 			cssObject['height'] = '100%';
 			cssObject['width'] = '100%';
-			cssObject['animation-duration'] = modalPlugin.finalOptions.animateDuration;
-			cssObject['-moz-animation-duration'] = modalPlugin.finalOptions.animateDuration;
-			cssObject['-webkit-animation-duration'] = modalPlugin.finalOptions.animateDuration;
-			cssObject['-ms-animation-duration'] = modalPlugin.finalOptions.animateDuration;
+			cssObject['animation-duration'] = modalPlugin.finalOptions.animateDuration + 's';
+			cssObject['-moz-animation-duration'] = modalPlugin.finalOptions.animateDuration + 's';
+			cssObject['-webkit-animation-duration'] = modalPlugin.finalOptions.animateDuration + 's';
+			cssObject['-ms-animation-duration'] = modalPlugin.finalOptions.animateDuration + 's';
 			cssObject['z-index'] = '9999';
 			return cssObject;
 		};

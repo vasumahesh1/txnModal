@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('#basic-modal').txnModal();
+
 	$('#normal-modal').txnModal({ 
 		modalCloseHandlers : ['#closeModalBtn'] 
 	});
@@ -23,5 +25,9 @@ $(document).ready(function(){
 
 	$('#click-btn-3').click(function(){
 		$('#target-modal-2').showModal();
+	});
+
+	$('#click-basic-modal-btn').click(function(){
+		$('#basic-modal').showModal();
 	});
 });
