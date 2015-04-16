@@ -149,7 +149,7 @@ Above code will open a modal of `750p x 450p` right in the center of the screen.
 ---
 
 ##### modalAutoCenter
-Auto Centers the Modal based on the CSS Given to it. If 'top' is present then it auto-centers it Horizontally. If 'left' is present it auto-centers it Vertically. Otherwise X & Y Both are centered.
+Auto Centers the Modal based on the CSS Given to it. If 'top' or 'bottom' is present then it auto-centers it Horizontally. If 'left' or 'right' is present it auto-centers it Vertically. Otherwise X & Y Both are centered.
 
 ```js
 // Both Centering
@@ -192,6 +192,14 @@ onOpen Event Hook
 
 ##### onClose
 onClose Event Hook
+
+Known Bugs
+----
+* Overflow Dialog has Scroll Issues
+* Target type Modals have Issues related to Auto Centering if you edit the CSS.
+  This is because Auto Centering Overlaps the Modal's position with the Target's
+  Position. In doing so It edits the CSS Properties that are in common with the
+  Auto Centering Feature.
 
 License
 ----

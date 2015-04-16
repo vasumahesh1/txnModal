@@ -92,24 +92,25 @@
 			for (var cssKey in modalCss) {
 				$element.parent().css(cssKey, modalCss[cssKey]);
 			}
+
 			if (modalPlugin.finalOptions.modalCss.length != 0) {
-				var hasTop = false;
-				var hasLeft = false;
+				var hasVertical = false;
+				var hasHorizontal = false;
 				var optionCss = modalPlugin.finalOptions.modalCss;
 				for (var cssKey in optionCss) {
-					if (cssKey == 'top') hasTop = true;
-					if (cssKey == 'left') hasLeft = true;
+					if (cssKey == 'top' || cssKey == 'bottom') hasVertical = true;
+					if (cssKey == 'left' || cssKey == 'right') hasHorizontal = true;
 					$element.parent().css(cssKey, optionCss[cssKey]);
 				}
 				if (modalPlugin.finalOptions.modalAutoCenter == true) {
-					if (hasTop == false) {
+					if (hasVertical == false) {
 						$element.parent().css('top', '50%');
 						var height = $element.parent().outerHeight();
 						var suitableMargin = (-1 * (height / 2)) + 'px';
 						$element.parent().css('margin-top', suitableMargin);
 					}
 
-					if (hasLeft == false) {
+					if (hasHorizontal == false) {
 						$element.parent().css('left', '50%');
 						var width = $element.parent().outerWidth();
 						var suitableMargin = (-1 * (width / 2)) + 'px';
@@ -137,6 +138,7 @@
 		 * As the Animation Starts the Modal is Immediately made Visible so that the Animation can be shown.
 		 */
 		modalPlugin.showModal = function() {
+
 			if (modalPlugin.finalOptions.modalTargetContainer) {
 				var targetWindow = modalPlugin.finalOptions.modalTargetContainer;
 				var targetHeight = $(targetWindow).outerHeight() + 'px';
@@ -151,6 +153,7 @@
 				}
 
 			}
+
 			// Reset Existing Animation Classes
 			resetAnimation();
 			$element.parent().addClass('animated ' + modalPlugin.finalOptions.animateIn);
@@ -195,7 +198,10 @@
 			cssObject['position'] = 'fixed';
 			cssObject['overflow'] = 'auto';
 			cssObject['display'] = 'none';
+			cssObject['padding'] = '10px';
 			cssObject['background'] = '#f6f6f6';
+			cssObject['border'] = 'solid 1px #d8d8d8';
+			cssObject['box-sizing'] = 'border-box';
 			cssObject['top'] = '0px';
 			cssObject['left'] = '0px';
 			cssObject['height'] = '100%';
