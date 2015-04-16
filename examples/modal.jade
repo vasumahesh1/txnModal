@@ -13,24 +13,43 @@ html
 	body
 		#normal-modal
 			p Normal Full Scale Modal
-			button#closeModalBtn Close this
+			button.sample-button#closeModalBtn Close this
 		#target-modal
 			p Target Modal
-			button#closeModalBtn2 Close this
+			button.sample-button#closeModalBtn2 Close this
 		#target-modal-2
 			p Target Modal
-			button#closeModalBtn3 Close this
+			button.sample-button#closeModalBtn3 Close this
 		#basic-modal 
 			p Very Basic Modal
+		#overflow-modal 
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
+			p.overflow-text-sample Overflow Text
 		.row
-			button#click-btn Normal Modal
+			.title-row Basic Modal
+			.text-row Modal with nothing Overriden
+			button.sample-button#click-basic-modal-btn Basic Empty Modal
 		.row
+			.title-row Normal Modal
+			.text-row Basic Modal with Overlapped Close Button.sample-button
+			button.sample-button#click-btn Normal Modal
+		.row
+			.title-row Normal Overflown Modal
+			.text-row Basic Modal with Overflowing Content
+			button.sample-button#click-overflow-btn Normal Overflow Modal
+		.row
+			.title-row Target Modal #1
+			.text-row Modal with Target Attribute Set to some Absolute Container
 			div#temp-parent-container Absoluted Container
+			button.sample-button#click-btn-2 Open in Fixed/Absoluted Target Window
 		.row
-			button#click-btn-2 Open in Fixed/Absoluted Target Window
-		.row
-			button#click-btn-3 Open in Local Target Window
-		.row
+			.title-row Target Modal #2
+			.text-row Modal with Target Attribute Set to some Local Container
+			button.sample-button#click-btn-3 Open in Local Target Window
 			div#temp-parent-container-2 Local Container Inline
-		.row
-			button#click-basic-modal-btn Basic Empty Modal

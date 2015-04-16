@@ -1,6 +1,9 @@
 # txnModal - Simple, Customizable Modal JQuery Plugin
 
-txnModal is under construction.
+
+> **IMPORTANT:**
+> txnModal is **under construction**.
+> Hence might be buggy.
 
 #### Features
 * Regular Full Scale Modal
@@ -69,27 +72,55 @@ var defaultOptions = {
 ##### animateIn
 Refer to Animate.css for Various Types
 
+---
+
 ##### animateOut
 Refer to Animate.css for Various Types
+
+---
 
 ##### animateDuration
 Duration for Animation of the Modals
 
+---
+
 ##### modalOverflow
 [Not Implemented As of Yet]
 
+---
+
 ##### modalTargetContainer
-If you want to open the Modal in any Given HTML Windows / Div. Specify the Identifier here.
+If you want to open the Modal in any Given HTML Window / Div. Specify the Identifier here.
+Eg:
+```js
+$('#target-modal-2').txnModal({ 
+    modalTargetContainer : '#temp-parent-container-2'
+});
+```
+
+---
 
 ##### modalWrapperClass
 Class for the Wrapper on which animation is performed.
 
+---
+
 ##### modalCloseHandlers
 Close Identifiers for the Modal. Specify the Identifiers in JSON Array of Strings.
+Eg:
+```js
+$('#normal-modal').txnModal({
+    modalCloseHandlers : ['#closeModalBtn']
+});
+```
+Use this if you have Custom Button(s) for Closing the Modal or You don't want to use the basic one.
 
+---
 
 ##### onOpen
 onOpen Event Hook
+
+---
 
 ##### onClose
 onClose Event Hook

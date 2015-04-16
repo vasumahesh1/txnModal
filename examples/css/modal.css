@@ -1,6 +1,7 @@
 body
 {
-	overflow: hidden;
+	overflow-x: hidden;
+	font-family: 'Arial';
 }
 
 #temp-parent-container
@@ -12,8 +13,8 @@ body
 	right: 50px;
 	top: 50px;
 	text-align: center;
-	background: #f6f6f6;
-	border:solid 1px #ddd;
+	background: #fff;
+	border:solid 1px #aaa;
 }
 
 #temp-parent-container-2
@@ -25,13 +26,56 @@ body
 	width: 250px;
 	display: inline-block;
 	text-align: center;
-	background: #f6f6f6;
+	background: #fff;
 	border:solid 1px #ddd;
+}
+
+.overflow-text-sample
+{
+	height: 100px;
 }
 
 .row
 {
-	padding: 10px;
+	padding: 50px 10px;
 	display: inline-block;
 	width: 100%;
+	border-bottom: solid 1px #f6f6f6;
+
+}
+
+.title-row
+{
+	font-size: 1.2em;
+	display: inline-block;
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.text-row
+{
+	font-size: 0.8em;
+	display: inline-block;
+	width: 100%;
+	padding: 10px 0px;
+}
+
+button.sample-button
+{
+	border: solid 1px #046380;
+	color: #046380;
+	background: none;
+	font-weight: 300;
+	border-radius: 3px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+button.sample-button:hover
+{
+	transition:all ease 0.3s;
+	-webkit-transition:all ease 0.3s;
+	border: solid 1px #002F2F;
+	color: #002F2F;
+	background: #e8e8e8;
 }

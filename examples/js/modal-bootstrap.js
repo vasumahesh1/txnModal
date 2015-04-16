@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#basic-modal').txnModal();
+	$('#overflow-modal').txnModal();
 
 	$('#normal-modal').txnModal({ 
 		modalCloseHandlers : ['#closeModalBtn'] 
@@ -17,6 +18,10 @@ $(document).ready(function(){
 
 	$('#click-btn').click(function(){
 		$('#normal-modal').showModal();
+	});
+
+	$('#click-overflow-btn').click(function(){
+		$('#overflow-modal').showModal();
 	});
 
 	$('#click-btn-2').click(function(){
