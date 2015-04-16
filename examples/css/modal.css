@@ -4,6 +4,13 @@ body
 	font-family: 'Arial';
 }
 
+.markdown-body 
+{
+    min-width: 200px;
+    max-width: 790px;
+    padding: 30px;
+}
+
 #temp-parent-container
 {
 	position: fixed;

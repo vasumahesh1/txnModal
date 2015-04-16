@@ -33,6 +33,7 @@
 			animateOut: 'zoomOut',
 			animateDuration: 0.3,
 			modalTargetContainer: null,
+			modalAutoCenter: false,
 			modalWrapperClass: 'txn-modal-wrapper',
 			modalCloseHandlers: [],
 			modalCss: {},
@@ -92,9 +93,28 @@
 				$element.parent().css(cssKey, modalCss[cssKey]);
 			}
 			if (modalPlugin.finalOptions.modalCss.length != 0) {
+				var hasTop = false;
+				var hasLeft = false;
 				var optionCss = modalPlugin.finalOptions.modalCss;
 				for (var cssKey in optionCss) {
+					if (cssKey == 'top') hasTop = true;
+					if (cssKey == 'left') hasLeft = true;
 					$element.parent().css(cssKey, optionCss[cssKey]);
+				}
+				if (modalPlugin.finalOptions.modalAutoCenter == true) {
+					if (hasTop == false) {
+						$element.parent().css('top', '50%');
+						var height = $element.parent().outerHeight();
+						var suitableMargin = (-1 * (height / 2)) + 'px';
+						$element.parent().css('margin-top', suitableMargin);
+					}
+
+					if (hasLeft == false) {
+						$element.parent().css('left', '50%');
+						var width = $element.parent().outerWidth();
+						var suitableMargin = (-1 * (width / 2)) + 'px';
+						$element.parent().css('margin-left', suitableMargin);
+					}
 				}
 			}
 

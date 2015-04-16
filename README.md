@@ -10,10 +10,11 @@
 * Customizable Close Button(s) [Support for More that one button that will close the modal]
 * Target based Modal Opening (Can Open Modals in Other HTML DOMS)
 * Customizable CSS for the Modal (If you don't want the full scale Default)
+* Auto Centering - X & Y Independently.
 * Attachable Hooks for Open and Close events
 
 #### Version
-0.0.2
+0.0.4
 
 #### Prerequisites
 
@@ -71,6 +72,7 @@ var defaultOptions = {
     animateOut: 'zoomOut',
     animateDuration: 0.3,
     modalTargetContainer: null,
+    modalAutoCenter: false,
     modalWrapperClass: 'txn-modal-wrapper',
     modalCloseHandlers: [],
     modalCss: {},
@@ -143,6 +145,43 @@ $('#css-modal').txnModal({
 });
 ```
 Above code will open a modal of `750p x 450p` right in the center of the screen.
+
+---
+
+##### modalAutoCenter
+Auto Centers the Modal based on the CSS Given to it. If 'top' is present then it auto-centers it Horizontally. If 'left' is present it auto-centers it Vertically. Otherwise X & Y Both are centered.
+
+```js
+// Both Centering
+$('#auto-modal-1').txnModal({ 
+    modalCss : { 
+        'height' : '450px',
+        'width' : '750px'
+    },
+    modalAutoCenter: true
+});
+
+// Only X Axis Centering
+$('#auto-modal-2').txnModal({ 
+    modalCss : { 
+        'height' : '450px',
+        'width' : '750px',
+        'top' : '10px'
+    },
+    modalAutoCenter: true
+});
+
+// Only Y Axis Centering
+$('#auto-modal-3').txnModal({ 
+    modalCss : { 
+        'height' : '450px',
+        'width' : '750px',
+        'left' : '10px'
+    },
+    modalAutoCenter: true
+});
+```
+
 
 ---
 
