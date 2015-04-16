@@ -1,0 +1,32 @@
+#temp-parent-container
+{
+	position: fixed;
+	height: 150px;
+	line-height: 150px;
+	width: 250px;
+	right: 50px;
+	top: 50px;
+	text-align: center;
+	background: #f6f6f6;
+	border:solid 1px #ddd;
+}
+
+#temp-parent-container-2
+{
+	position: relative;
+	min-height: 150px;
+	height: 150px;
+	line-height: 150px;
+	width: 250px;
+	display: inline-block;
+	text-align: center;
+	background: #f6f6f6;
+	border:solid 1px #ddd;
+}
+
+.row
+{
+	padding: 10px;
+	display: inline-block;
+	width: 100%;
+}
