@@ -14,6 +14,8 @@ html
 		#normal-modal
 			p Normal Full Scale Modal
 			button.sample-button#closeModalBtn Close this
+		#css-modal
+			p CSS Overriden Modal
 		#target-modal
 			p Target Modal
 			button.sample-button#closeModalBtn2 Close this
@@ -40,16 +42,20 @@ html
 			.text-row Basic Modal with Overlapped Close Button.sample-button
 			button.sample-button#click-btn Normal Modal
 		.row
-			.title-row Normal Overflown Modal
+			.title-row Normal CSS Overriden Modal
+			.text-row Basic Modal with Overriden CSS
+			button.sample-button#click-css-btn Custom CSS Modal
+		.row
+			.title-row Normal Overflown Modal [Buggy]
 			.text-row Basic Modal with Overflowing Content
 			button.sample-button#click-overflow-btn Normal Overflow Modal
 		.row
 			.title-row Target Modal #1
 			.text-row Modal with Target Attribute Set to some Absolute Container
 			div#temp-parent-container Absoluted Container
-			button.sample-button#click-btn-2 Open in Fixed/Absoluted Target Window
+			button.sample-button#click-target-1-btn Open in Fixed/Absoluted Target Window
 		.row
 			.title-row Target Modal #2
 			.text-row Modal with Target Attribute Set to some Local Container
-			button.sample-button#click-btn-3 Open in Local Target Window
+			button.sample-button#click-target-2-btn Open in Local Target Window
 			div#temp-parent-container-2 Local Container Inline

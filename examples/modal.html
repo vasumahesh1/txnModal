@@ -17,6 +17,9 @@
       <p>Normal Full Scale Modal</p>
       <button id="closeModalBtn" class="sample-button">Close this</button>
     </div>
+    <div id="css-modal">
+      <p>CSS Overriden Modal</p>
+    </div>
     <div id="target-modal">
       <p>Target Modal</p>
       <button id="closeModalBtn2" class="sample-button">Close this</button>
@@ -49,7 +52,12 @@
       <button id="click-btn" class="sample-button">Normal Modal</button>
     </div>
     <div class="row">
-      <div class="title-row">Normal Overflown Modal</div>
+      <div class="title-row">Normal CSS Overriden Modal</div>
+      <div class="text-row">Basic Modal with Overriden CSS</div>
+      <button id="click-css-btn" class="sample-button">Custom CSS Modal</button>
+    </div>
+    <div class="row">
+      <div class="title-row">Normal Overflown Modal [Buggy]</div>
       <div class="text-row">Basic Modal with Overflowing Content</div>
       <button id="click-overflow-btn" class="sample-button">Normal Overflow Modal</button>
     </div>
@@ -57,12 +65,12 @@
       <div class="title-row">Target Modal #1</div>
       <div class="text-row">Modal with Target Attribute Set to some Absolute Container</div>
       <div id="temp-parent-container">Absoluted Container</div>
-      <button id="click-btn-2" class="sample-button">Open in Fixed/Absoluted Target Window</button>
+      <button id="click-target-1-btn" class="sample-button">Open in Fixed/Absoluted Target Window</button>
     </div>
     <div class="row">
       <div class="title-row">Target Modal #2</div>
       <div class="text-row">Modal with Target Attribute Set to some Local Container</div>
-      <button id="click-btn-3" class="sample-button">Open in Local Target Window</button>
+      <button id="click-target-2-btn" class="sample-button">Open in Local Target Window</button>
       <div id="temp-parent-container-2">Local Container Inline</div>
     </div>
   </body>

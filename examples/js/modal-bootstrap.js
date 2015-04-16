@@ -6,6 +6,17 @@ $(document).ready(function(){
 		modalCloseHandlers : ['#closeModalBtn'] 
 	});
 
+	$('#css-modal').txnModal({ 
+		modalCss : { 
+			'height' : '450px',
+			'width' : '750px',
+			'left' : '50%',
+			'top' : '50%',
+			'margin-left' : '-375px',
+			'margin-top' : '-225px'
+		}
+	});
+
 	$('#target-modal').txnModal({ 
 		modalCloseHandlers : ['#closeModalBtn2'],
 		modalTargetContainer : '#temp-parent-container'
@@ -20,15 +31,19 @@ $(document).ready(function(){
 		$('#normal-modal').showModal();
 	});
 
+	$('#click-css-btn').click(function(){
+		$('#css-modal').showModal();
+	});
+
 	$('#click-overflow-btn').click(function(){
 		$('#overflow-modal').showModal();
 	});
 
-	$('#click-btn-2').click(function(){
+	$('#click-target-1-btn').click(function(){
 		$('#target-modal').showModal();
 	});
 
-	$('#click-btn-3').click(function(){
+	$('#click-target-2-btn').click(function(){
 		$('#target-modal-2').showModal();
 	});
 

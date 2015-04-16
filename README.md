@@ -9,6 +9,7 @@
 * Regular Full Scale Modal
 * Customizable Close Button(s) [Support for More that one button that will close the modal]
 * Target based Modal Opening (Can Open Modals in Other HTML DOMS)
+* Customizable CSS for the Modal (If you don't want the full scale Default)
 * Attachable Hooks for Open and Close events
 
 #### Version
@@ -23,6 +24,14 @@ txnModal uses Animate.css and Jquery.
 
 ### Basic Usage
 
+Importing
+```html
+<!-- Needs Animate.css-->
+<link rel="stylesheet" href="../dependencies/animate.css"/>
+<!-- JQuery Required-->
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+```
+Init & Execution
 ```js
 // Make sure you have imported JQuery.js , Animate.css & txnModal.js
 // Init Line. Put this in Document Ready. txnModal will Take care of your DOM.
@@ -61,10 +70,10 @@ var defaultOptions = {
     animateIn: 'zoomIn',
     animateOut: 'zoomOut',
     animateDuration: 0.3,
-    modalOverflow: 'auto',
     modalTargetContainer: null,
     modalWrapperClass: 'txn-modal-wrapper',
     modalCloseHandlers: [],
+    modalCss: {},
     onOpen: function() {},
     onClose: function() {}
 };
@@ -80,7 +89,7 @@ Refer to Animate.css for Various Types
 ---
 
 ##### animateDuration
-Duration for Animation of the Modals
+Duration for Animation of the Modals in **seconds**. By Default it is set to 0.3 seconds.
 
 ---
 
@@ -114,6 +123,26 @@ $('#normal-modal').txnModal({
 });
 ```
 Use this if you have Custom Button(s) for Closing the Modal or You don't want to use the basic one.
+
+---
+
+##### modalCss
+CSS Overriding Parameter. So you can modify the Modal's Appearance. Refer
+Examples for a working sample.
+Eg:
+```js
+$('#css-modal').txnModal({ 
+    modalCss : { 
+        'height' : '450px',
+        'width' : '750px',
+        'left' : '50%',
+        'top' : '50%',
+        'margin-left' : '-375px',
+        'margin-top' : '-225px'
+    }
+});
+```
+Above code will open a modal of `750p x 450p` right in the center of the screen.
 
 ---
 
