@@ -73,9 +73,8 @@
 		 */
 		var modalContainsTarget = false;
 		var modalPlugin = this;
-		modalPlugin.finalOptions = {}
-		var $element = $(element),
-			element = element;
+		modalPlugin.finalOptions = {};
+		var $element = $(element);
 
 		/*
 		 * Initialization Function
@@ -104,39 +103,39 @@
 			}
 
 			// For those that aren't assigned Target Windows get Postion Fixed in the entire Window
-			if (modalContainsTarget == false) {
+			if (modalContainsTarget === false) {
 				$element.parent().css('position', 'fixed');
 			}
 
 			// Applying Custom CSS & Auto Centering
-			if (modalPlugin.finalOptions.modalCss.length != 0) {
+			if (modalPlugin.finalOptions.modalCss.length !== 0) {
 				var hasVertical = false;
 				var hasHorizontal = false;
 				var optionCss = modalPlugin.finalOptions.modalCss;
-				for (var cssKey in optionCss) {
-					if (cssKey == 'top' || cssKey == 'bottom') hasVertical = true;
-					if (cssKey == 'left' || cssKey == 'right') hasHorizontal = true;
-					$element.parent().css(cssKey, optionCss[cssKey]);
+				for (var optionCssKey in optionCss) {
+					if (optionCssKey == 'top' || optionCssKey == 'bottom') hasVertical = true;
+					if (optionCssKey == 'left' || optionCssKey == 'right') hasHorizontal = true;
+					$element.parent().css(optionCssKey, optionCss[optionCssKey]);
 				}
-				if (modalPlugin.finalOptions.modalAutoCenter == true) {
-					if (hasVertical == false) {
+				if (modalPlugin.finalOptions.modalAutoCenter === true) {
+					if (hasVertical === false) {
 						$element.parent().css('top', '50%');
 						var height = $element.parent().outerHeight();
-						var suitableMargin = (-1 * (height / 2)) + 'px';
-						$element.parent().css('margin-top', suitableMargin);
+						var suitableVerticalMargin = (-1 * (height / 2)) + 'px';
+						$element.parent().css('margin-top', suitableVerticalMargin);
 					}
 
-					if (hasHorizontal == false) {
+					if (hasHorizontal === false) {
 						$element.parent().css('left', '50%');
 						var width = $element.parent().outerWidth();
-						var suitableMargin = (-1 * (width / 2)) + 'px';
-						$element.parent().css('margin-left', suitableMargin);
+						var suitableHorizontalMargin = (-1 * (width / 2)) + 'px';
+						$element.parent().css('margin-left', suitableHorizontalMargin);
 					}
 				}
 			}
 
 			// Attaching Close Handlers
-			if (modalPlugin.finalOptions.modalCloseHandlers.length != 0) {
+			if (modalPlugin.finalOptions.modalCloseHandlers.length !== 0) {
 				for (var closeHandlerKey in modalPlugin.finalOptions.modalCloseHandlers) {
 					$(modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]).click(function() {
 						modalPlugin.closeModal();
@@ -156,7 +155,7 @@
 		 */
 		modalPlugin.showModal = function() {
 
-			if (modalPlugin.finalOptions.targetScrollEnabled == false) {
+			if (modalPlugin.finalOptions.targetScrollEnabled === false) {
 				if (modalContainsTarget) {
 					// Modal-> Modal Wrapper -> Target Container
 					$element.parent().parent().css('overflow', 'hidden');
@@ -190,7 +189,7 @@
 		 * Here, The animation is started first then the modal is hidden from the user (at the very end)
 		 */
 		modalPlugin.closeModal = function() {
-			if (modalPlugin.finalOptions.targetScrollEnabled == false) {
+			if (modalPlugin.finalOptions.targetScrollEnabled === false) {
 				if (modalContainsTarget) {
 					// Modal-> Modal Wrapper -> Target Container
 					$element.parent().parent().css('overflow', 'auto');
@@ -263,14 +262,14 @@
 
 		modalPlugin.init();
 
-	}
+	};
 
 	/*
 	 * Main Starting Function - Initializes the Un-initialized TxnModals
 	 */
 	$.fn.txnModal = function(options) {
 		return this.each(function() {
-			if (options && options.modalTargetContainer != undefined) {
+			if (options && options.modalTargetContainer !== undefined) {
 				$(this).wrap('<p></p>');
 				$(this).attr('data-display', $(this).css('display'));
 				$(this).attr('txn-modal-options', JSON.stringify(options));
@@ -282,16 +281,16 @@
 				return;
 			}
 
-			if (undefined != $(this).data('txnModalOptions')) {
+			if (undefined !== $(this).data('txnModalOptions')) {
 				options = $(this).data('txnModalOptions');
 			}
 
-			if (undefined == $(this).data('txnModal')) {
+			if (undefined === $(this).data('txnModal')) {
 				var plugin = new $.txnModal(this, options);
 				$(this).data('txnModal', plugin);
 			}
 		});
-	}
+	};
 
 	/*
 	 * Wrapper Function to Show the Modal. If the TxnModal is no initialized then it can be Initialized here directly.
@@ -299,18 +298,18 @@
 	$.fn.showModal = function(options) {
 		if (this.length > 1) {
 			console.warn('More than 1 element found. Please use Identifiers. Using 1st Reference');
-		} else if (this.length == 0) {
+		} else if (this.length === 0) {
 			console.warn('Modal Element Not Found');
 			return;
 		}
 
-		if (undefined == $(this).data('txnModal')) {
-			var options = $.parseJSON($(this).attr('txn-modal-options'));
-			var plugin = new $.txnModal(this, options);
+		if (undefined === $(this).data('txnModal')) {
+			var attrOptions = $.parseJSON($(this).attr('txn-modal-options'));
+			var plugin = new $.txnModal(this, attrOptions);
 			$(this).data('txnModal', plugin);
 			console.warn('Modal was not Initialized. Initialized Now.');
 		}
 		$(this).data('txnModal').showModal();
-	}
+	};
 
 })(jQuery);
