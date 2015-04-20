@@ -14,7 +14,7 @@
 * Attachable Hooks for Open and Close events
 
 #### Version
-0.0.4
+0.0.5
 
 #### Prerequisites
 
