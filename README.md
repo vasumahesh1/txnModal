@@ -1,5 +1,5 @@
 # txnModal - Simple, Customizable Modal JQuery Plugin
-
+[![BuildStatus](https://travis-ci.org/vasumahesh1/txnModal.svg?branch=master)](https://travis-ci.org/vasumahesh1/txnModal)
 
 > **IMPORTANT:**
 > txnModal is **under construction**.
