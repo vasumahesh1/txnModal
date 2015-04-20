@@ -76,6 +76,7 @@ var defaultOptions = {
     modalWrapperClass: 'txn-modal-wrapper',
     modalCloseHandlers: [],
     modalCss: {},
+    targetScrollEnabled: true,
     onOpen: function() {},
     onClose: function() {}
 };
@@ -95,13 +96,8 @@ Duration for Animation of the Modals in **seconds**. By Default it is set to 0.3
 
 ---
 
-##### modalOverflow
-[Not Implemented As of Yet]
-
----
-
 ##### modalTargetContainer
-If you want to open the Modal in any Given HTML Window / Div. Specify the Identifier here.
+If you want to open the Modal in any Given HTML Window / Div. Specify the Identifier here. Note: This doesn't require you to place the modal in the Nested HTML. It is taken care by the Plugin. It moves the modal's HTML code to the Target Container. Refer Examples for various Customizations.
 Eg:
 ```js
 $('#target-modal-2').txnModal({ 
@@ -112,7 +108,8 @@ $('#target-modal-2').txnModal({
 ---
 
 ##### modalWrapperClass
-Class for the Wrapper on which animation is performed.
+Class for the Wrapper on which animation is performed. Use this If you want to
+add some extra CSS Classes for other JQuery or CSS needs.
 
 ---
 
@@ -182,6 +179,17 @@ $('#auto-modal-3').txnModal({
 });
 ```
 
+---
+
+##### targetScrollEnabled
+Change if the Target Window can scroll or not. For those that haven't given the
+Target Window, target is taken as `body`.
+
+```js
+$('#overflow-modal').txnModal({
+    targetScrollEnabled : false
+});
+```
 
 ---
 
@@ -193,13 +201,13 @@ onOpen Event Hook
 ##### onClose
 onClose Event Hook
 
-Known Bugs
+Known Issues, Bugs & Fix Status
 ----
-* Overflow Dialog has Scroll Issues
-* Target type Modals have Issues related to Auto Centering if you edit the CSS.
-  This is because Auto Centering Overlaps the Modal's position with the Target's
-  Position. In doing so It edits the CSS Properties that are in common with the
-  Auto Centering Feature.
+* Outside Click doesn't Close the Modal [Yet]
+* Responsive Issues maybe present with some Modals with Fixed Width and Heights
+* Overflow Modal's Default Close Button is not Fixed at the Top Right
+* ~~Overflow Dialog has Scroll Issues~~
+* ~~Cannot Auto Center Modals with `modalTargetContainer` property~~
 
 License
 ----

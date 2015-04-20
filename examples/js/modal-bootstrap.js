@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	$('#basic-modal').txnModal();
-	$('#overflow-modal').txnModal();
+	$('#overflow-modal').txnModal({
+		targetScrollEnabled : false
+	});
 
 	$('#normal-modal').txnModal({ 
 		modalCloseHandlers : ['#closeModalBtn'] 
@@ -14,7 +16,8 @@ $(document).ready(function(){
 			'top' : '50%',
 			'margin-left' : '-375px',
 			'margin-top' : '-225px'
-		}
+		},
+		targetScrollEnabled : false
 	});
 
 	$('#auto-modal-1').txnModal({ 
@@ -53,6 +56,27 @@ $(document).ready(function(){
 		modalTargetContainer : '#temp-parent-container-2'
 	});
 
+	$('#target-modal-3').txnModal({ 
+		modalCloseHandlers : ['#closeModalBtn4'],
+		modalTargetContainer : '#temp-parent-container-3',
+		modalCss : { 
+			'height' : '100px',
+			'width' : '150px'
+		},
+		modalAutoCenter: true
+	});
+
+	$('#target-modal-4').txnModal({ 
+		modalCloseHandlers : ['#closeModalBtn5'],
+		modalTargetContainer : '#temp-parent-container-4',
+		modalCss : { 
+			'height' : '100px',
+			'width' : '150px'
+		},
+		modalAutoCenter: true,
+		targetScrollEnabled: false
+	});
+
 	$('#click-btn').click(function(){
 		$('#normal-modal').showModal();
 	});
@@ -71,6 +95,14 @@ $(document).ready(function(){
 
 	$('#click-target-2-btn').click(function(){
 		$('#target-modal-2').showModal();
+	});
+
+	$('#click-target-3-btn').click(function(){
+		$('#target-modal-3').showModal();
+	});
+
+	$('#click-target-4-btn').click(function(){
+		$('#target-modal-4').showModal();
 	});
 
 	$('#click-auto-1-btn').click(function(){

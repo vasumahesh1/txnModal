@@ -11,30 +11,33 @@ body
     padding: 30px;
 }
 
-#temp-parent-container
-{
-	position: fixed;
-	height: 150px;
-	line-height: 150px;
-	width: 250px;
-	right: 50px;
-	top: 50px;
-	text-align: center;
-	background: #fff;
-	border:solid 1px #aaa;
-}
-
-#temp-parent-container-2
+.container-sample
 {
 	position: relative;
 	min-height: 150px;
 	height: 150px;
-	line-height: 150px;
 	width: 250px;
 	display: inline-block;
 	text-align: center;
 	background: #fff;
 	border:solid 1px #ddd;
+}
+
+#temp-parent-container
+{
+	position: fixed;
+	right: 50px;
+	top: 50px;
+}
+
+#temp-parent-container-2
+{
+	position: relative;
+}
+
+#temp-parent-container-4
+{
+	overflow: scroll;
 }
 
 .overflow-text-sample

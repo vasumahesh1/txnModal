@@ -31,6 +31,12 @@ html
 		#target-modal-2
 			p Target Modal
 			button.sample-button#closeModalBtn3 Close this
+		#target-modal-3
+			p Target Modal
+			button.sample-button#closeModalBtn4 Close this
+		#target-modal-4
+			p Target Modal
+			button.sample-button#closeModalBtn5 Close this
 		#basic-modal 
 			p Very Basic Modal
 		#overflow-modal 
@@ -60,7 +66,7 @@ html
 			button.sample-button#click-btn Normal Modal
 		.row
 			.title-row Normal CSS Overriden Modal
-			.text-row Basic Modal with Overriden CSS
+			.text-row Basic Modal with Overriden CSS and Disables scroll to illustrate.
 			.markdown-body
 				pre.
 					$('#css-modal').txnModal({ 
@@ -71,7 +77,8 @@ html
 							'top' : '50%',
 							'margin-left' : '-375px',
 							'margin-top' : '-225px'
-						}
+						},
+						targetScrollEnabled : false
 					});
 			button.sample-button#click-css-btn Custom CSS Modal
 		.row
@@ -115,7 +122,9 @@ html
 			.text-row Basic Modal with Overflowing Content
 			.markdown-body
 				pre.
-					$('#overflow-modal').txnModal();
+					$('#overflow-modal').txnModal({
+						targetScrollEnabled : false
+					});
 			button.sample-button#click-overflow-btn Normal Overflow Modal
 		.row
 			.title-row Target Modal #1
@@ -126,7 +135,7 @@ html
 						modalCloseHandlers : ['#closeModalBtn2'],
 						modalTargetContainer : '#temp-parent-container'
 					});
-			div#temp-parent-container Fixed Container
+			div.container-sample#temp-parent-container Target Modal #1
 			button.sample-button#click-target-1-btn Open in Fixed/Absoluted Target Window
 		.row
 			.title-row Target Modal #2
@@ -138,4 +147,65 @@ html
 						modalTargetContainer : '#temp-parent-container-2'
 					});
 			button.sample-button#click-target-2-btn Open in Local Target Window
-			div#temp-parent-container-2 Local Container Inline
+			div.container-sample#temp-parent-container-2 Target Modal #2
+		.row
+			.title-row Target Modal #3
+			.text-row Modal with Target Attribute and Combined with Awesome Auto Centering
+			.markdown-body
+				pre.
+					$('#target-modal-3').txnModal({ 
+						modalCloseHandlers : ['#closeModalBtn4'],
+						modalTargetContainer : '#temp-parent-container-3',
+						modalCss : { 
+							'height' : '100px',
+							'width' : '150px'
+						},
+						modalAutoCenter: true
+					});
+			button.sample-button#click-target-3-btn Open in Local Target Window
+			div.container-sample#temp-parent-container-3 Target Modal #3
+		.row
+			.title-row Target Modal #4
+			.text-row Modal with Target Attribute and Combined with Awesome Auto Centering
+			.markdown-body
+				pre.
+					$('#target-modal-3').txnModal({ 
+						modalCloseHandlers : ['#closeModalBtn5'],
+						modalTargetContainer : '#temp-parent-container-4',
+						modalCss : { 
+							'height' : '100px',
+							'width' : '150px'
+						},
+						modalAutoCenter: true,
+						targetScrollEnabled: false
+					});
+			button.sample-button#click-target-4-btn Open in Local Overflowing Target Window
+			div.container-sample#temp-parent-container-4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4
+				br
+				p Target Modal #4

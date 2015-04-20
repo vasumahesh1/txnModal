@@ -37,6 +37,7 @@
 			modalWrapperClass: 'txn-modal-wrapper',
 			modalCloseHandlers: [],
 			modalCss: {},
+			targetScrollEnabled: true,
 			onOpen: function() {},
 			onClose: function() {}
 		};
@@ -47,7 +48,7 @@
 		var templateWrapperDom = '';
 		var templateWrapperDomPart1 = '<div class="';
 		var templateWrapperDomPart2 = '"></div>';
-
+		var modalInnerWrapperClass = 'txn-inner-modal';
 		var fallbackCloseButtonClass = 'txn-modal-close';
 		var fallbackCloseButton = "";
 		fallbackCloseButton += "<button class='" + fallbackCloseButtonClass + "'";
@@ -70,6 +71,7 @@
 		/*
 		 * Basic Variables
 		 */
+		var modalContainsTarget = false;
 		var modalPlugin = this;
 		modalPlugin.finalOptions = {}
 		var $element = $(element),
@@ -80,8 +82,16 @@
 		 * Applies some Basic CSS & Attaches Handlers based on the Options
 		 */
 		modalPlugin.init = function() {
+			// Modals with Target Windows are initialized on showModal(). because the Init Involves just movement of the DOM.
+			modalContainsTarget = false;
+			if ($element.css('display') == 'none') {
+				modalContainsTarget = true;
+				$element.css('display', $element.attr('data-display'));
+			}
+
 			// Get Final Options
 			modalPlugin.finalOptions = $.extend({}, defaultOptions, customOptions);
+			$element.addClass(modalInnerWrapperClass);
 
 			// Wrapper Init
 			templateWrapperDom = templateWrapperDomPart1 + modalPlugin.finalOptions.modalWrapperClass + templateWrapperDomPart2;
@@ -93,6 +103,12 @@
 				$element.parent().css(cssKey, modalCss[cssKey]);
 			}
 
+			// For those that aren't assigned Target Windows get Postion Fixed in the entire Window
+			if (modalContainsTarget == false) {
+				$element.parent().css('position', 'fixed');
+			}
+
+			// Applying Custom CSS & Auto Centering
 			if (modalPlugin.finalOptions.modalCss.length != 0) {
 				var hasVertical = false;
 				var hasHorizontal = false;
@@ -119,6 +135,7 @@
 				}
 			}
 
+			// Attaching Close Handlers
 			if (modalPlugin.finalOptions.modalCloseHandlers.length != 0) {
 				for (var closeHandlerKey in modalPlugin.finalOptions.modalCloseHandlers) {
 					$(modalPlugin.finalOptions.modalCloseHandlers[closeHandlerKey]).click(function() {
@@ -139,19 +156,13 @@
 		 */
 		modalPlugin.showModal = function() {
 
-			if (modalPlugin.finalOptions.modalTargetContainer) {
-				var targetWindow = modalPlugin.finalOptions.modalTargetContainer;
-				var targetHeight = $(targetWindow).outerHeight() + 'px';
-				var targetWidth = $(targetWindow).outerWidth() + 'px';
-				var targetPos = $(targetWindow).position();
-				$element.parent().css('height', targetHeight);
-				$element.parent().css('width', targetWidth);
-				$element.parent().css('top', targetPos.top);
-				$element.parent().css('left', targetPos.left);
-				if ($(targetWindow).css('position') != 'fixed') {
-					$element.parent().css('position', 'absolute');
+			if (modalPlugin.finalOptions.targetScrollEnabled == false) {
+				if (modalContainsTarget) {
+					// Modal-> Modal Wrapper -> Target Container
+					$element.parent().parent().css('overflow', 'hidden');
+				} else {
+					$('body').css('overflow', 'hidden');
 				}
-
 			}
 
 			// Reset Existing Animation Classes
@@ -170,6 +181,7 @@
 				}
 				modalPlugin.finalOptions.onOpen();
 			});
+			console.log('Opening Modal');
 		};
 
 
@@ -178,6 +190,15 @@
 		 * Here, The animation is started first then the modal is hidden from the user (at the very end)
 		 */
 		modalPlugin.closeModal = function() {
+			if (modalPlugin.finalOptions.targetScrollEnabled == false) {
+				if (modalContainsTarget) {
+					// Modal-> Modal Wrapper -> Target Container
+					$element.parent().parent().css('overflow', 'auto');
+				} else {
+					$('body').css('overflow', 'auto');
+				}
+			}
+
 			resetAnimation();
 			$element.parent().addClass('animated ' + modalPlugin.finalOptions.animateOut);
 			$element.parent().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -195,7 +216,7 @@
 		 */
 		var getModalCss = function() {
 			var cssObject = {};
-			cssObject['position'] = 'fixed';
+			cssObject['position'] = 'absolute';
 			cssObject['overflow'] = 'auto';
 			cssObject['display'] = 'none';
 			cssObject['padding'] = '10px';
@@ -249,6 +270,22 @@
 	 */
 	$.fn.txnModal = function(options) {
 		return this.each(function() {
+			if (options && options.modalTargetContainer != undefined) {
+				$(this).wrap('<p></p>');
+				$(this).attr('data-display', $(this).css('display'));
+				$(this).attr('txn-modal-options', JSON.stringify(options));
+				$(this).css('display', 'none');
+				var existingHtml = $(this).parent().html();
+				$(this).remove();
+				var targetWindow = options.modalTargetContainer;
+				$(targetWindow).prepend(existingHtml);
+				return;
+			}
+
+			if (undefined != $(this).data('txnModalOptions')) {
+				options = $(this).data('txnModalOptions');
+			}
+
 			if (undefined == $(this).data('txnModal')) {
 				var plugin = new $.txnModal(this, options);
 				$(this).data('txnModal', plugin);
@@ -268,8 +305,10 @@
 		}
 
 		if (undefined == $(this).data('txnModal')) {
+			var options = $.parseJSON($(this).attr('txn-modal-options'));
 			var plugin = new $.txnModal(this, options);
 			$(this).data('txnModal', plugin);
+			console.warn('Modal was not Initialized. Initialized Now.');
 		}
 		$(this).data('txnModal').showModal();
 	}

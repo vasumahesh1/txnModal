@@ -38,6 +38,14 @@
       <p>Target Modal</p>
       <button id="closeModalBtn3" class="sample-button">Close this</button>
     </div>
+    <div id="target-modal-3">
+      <p>Target Modal</p>
+      <button id="closeModalBtn4" class="sample-button">Close this</button>
+    </div>
+    <div id="target-modal-4">
+      <p>Target Modal</p>
+      <button id="closeModalBtn5" class="sample-button">Close this</button>
+    </div>
     <div id="basic-modal"> 
       <p>Very Basic Modal</p>
     </div>
@@ -71,7 +79,7 @@
     </div>
     <div class="row">
       <div class="title-row">Normal CSS Overriden Modal</div>
-      <div class="text-row">Basic Modal with Overriden CSS</div>
+      <div class="text-row">Basic Modal with Overriden CSS and Disables scroll to illustrate.</div>
       <div class="markdown-body">
         <pre>$('#css-modal').txnModal({ 
 	modalCss : { 
@@ -81,7 +89,8 @@
 		'top' : '50%',
 		'margin-left' : '-375px',
 		'margin-top' : '-225px'
-	}
+	},
+	targetScrollEnabled : false
 });</pre>
       </div>
       <button id="click-css-btn" class="sample-button">Custom CSS Modal</button>
@@ -127,7 +136,9 @@ $('#auto-modal-3').txnModal({
       <div class="title-row">Normal Overflown Modal [Buggy]</div>
       <div class="text-row">Basic Modal with Overflowing Content</div>
       <div class="markdown-body">
-        <pre>$('#overflow-modal').txnModal();</pre>
+        <pre>$('#overflow-modal').txnModal({
+	targetScrollEnabled : false
+});</pre>
       </div>
       <button id="click-overflow-btn" class="sample-button">Normal Overflow Modal</button>
     </div>
@@ -140,7 +151,7 @@ $('#auto-modal-3').txnModal({
 	modalTargetContainer : '#temp-parent-container'
 });</pre>
       </div>
-      <div id="temp-parent-container">Fixed Container</div>
+      <div id="temp-parent-container" class="container-sample">Target Modal #1</div>
       <button id="click-target-1-btn" class="sample-button">Open in Fixed/Absoluted Target Window</button>
     </div>
     <div class="row">
@@ -153,7 +164,57 @@ $('#auto-modal-3').txnModal({
 });</pre>
       </div>
       <button id="click-target-2-btn" class="sample-button">Open in Local Target Window</button>
-      <div id="temp-parent-container-2">Local Container Inline</div>
+      <div id="temp-parent-container-2" class="container-sample">Target Modal #2</div>
+    </div>
+    <div class="row">
+      <div class="title-row">Target Modal #3</div>
+      <div class="text-row">Modal with Target Attribute and Combined with Awesome Auto Centering</div>
+      <div class="markdown-body">
+        <pre>$('#target-modal-3').txnModal({ 
+	modalCloseHandlers : ['#closeModalBtn4'],
+	modalTargetContainer : '#temp-parent-container-3',
+	modalCss : { 
+		'height' : '100px',
+		'width' : '150px'
+	},
+	modalAutoCenter: true
+});</pre>
+      </div>
+      <button id="click-target-3-btn" class="sample-button">Open in Local Target Window</button>
+      <div id="temp-parent-container-3" class="container-sample">Target Modal #3</div>
+    </div>
+    <div class="row">
+      <div class="title-row">Target Modal #4</div>
+      <div class="text-row">Modal with Target Attribute and Combined with Awesome Auto Centering</div>
+      <div class="markdown-body">
+        <pre>$('#target-modal-3').txnModal({ 
+	modalCloseHandlers : ['#closeModalBtn5'],
+	modalTargetContainer : '#temp-parent-container-4',
+	modalCss : { 
+		'height' : '100px',
+		'width' : '150px'
+	},
+	modalAutoCenter: true,
+	targetScrollEnabled: false
+});</pre>
+      </div>
+      <button id="click-target-4-btn" class="sample-button">Open in Local Overflowing Target Window</button>
+      <div id="temp-parent-container-4" class="container-sample"><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p><br/>
+        <p>Target Modal #4</p>
+      </div>
     </div>
   </body>
 </html>
