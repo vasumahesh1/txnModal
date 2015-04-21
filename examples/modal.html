@@ -15,91 +15,124 @@
   </head>
   <body>
     <div id="normal-modal">
-      <p>Normal Full Scale Modal</p>
-      <button id="closeModalBtn" class="sample-button">Close this</button>
+      <div class="row-inner">
+        <p>Normal Full Scale Modal</p>
+        <button id="closeModalBtn" class="sample-button">Close this</button>
+      </div>
     </div>
     <div id="css-modal">
-      <p>CSS Overriden Modal</p>
+      <div class="row-inner">
+        <p>CSS Overriden Modal</p>
+      </div>
     </div>
     <div id="auto-modal-1">
-      <p>Auto Center Modal</p>
+      <div class="row-inner">
+        <p>Auto Center Modal</p>
+      </div>
     </div>
     <div id="auto-modal-2">
-      <p>Auto Center Modal</p>
+      <div class="row-inner">
+        <p>Auto Center Modal</p>
+      </div>
     </div>
     <div id="auto-modal-3">
-      <p>Auto Center Modal</p>
+      <div class="row-inner">
+        <p>Auto Center Modal</p>
+      </div>
     </div>
     <div id="target-modal">
-      <p>Target Modal</p>
-      <button id="closeModalBtn2" class="sample-button">Close this</button>
+      <div class="row-inner">
+        <p>Target Modal</p>
+        <button id="closeModalBtn2" class="sample-button">Close this</button>
+      </div>
     </div>
     <div id="target-modal-2">
-      <p>Target Modal</p>
-      <button id="closeModalBtn3" class="sample-button">Close this</button>
+      <div class="row-inner">
+        <p>Target Modal</p>
+        <button id="closeModalBtn3" class="sample-button">Close this</button>
+      </div>
     </div>
     <div id="target-modal-3">
-      <p>Target Modal</p>
-      <button id="closeModalBtn4" class="sample-button">Close this</button>
-    </div>
-    <div id="target-modal-4">
-      <p>Target Modal</p>
-      <button id="closeModalBtn5" class="sample-button">Close this</button>
+      <div class="row-inner">
+        <p style="margin:0px;">Target Modal</p>
+        <button id="closeModalBtn4" class="sample-button">Close this</button>
+      </div>
     </div>
     <div id="basic-modal"> 
-      <p>Very Basic Modal</p>
+      <div class="row-inner">
+        <p>Very Basic Modal</p>
+      </div>
     </div>
     <div id="overflow-modal"> 
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-      <p class="overflow-text-sample">Overflow Text</p>
-    </div>
-    <div class="row">
-      <div class="title-row">Basic Modal</div>
-      <div class="text-row">Modal with nothing Overriden</div>
-      <div class="markdown-body">
-        <pre>$('#basic-modal').txnModal();</pre>
+      <div class="row-inner">
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
+        <p class="overflow-text-sample">Overflow Text</p>
       </div>
-      <button id="click-basic-modal-btn" class="sample-button">Basic Empty Modal</button>
     </div>
     <div class="row">
-      <div class="title-row">Normal Modal</div>
-      <div class="text-row">Basic Modal with Overlapped Close Button.sample-button</div>
-      <div class="markdown-body">
-        <pre>$('#normal-modal').txnModal({ 
+      <h3>txnModal - Examples</h3>
+    </div>
+    <div class="row">
+      <div class="row-inner">
+        <div class="title-row">Basic Modal</div>
+        <div class="text-row">Modal with nothing Overriden</div>
+        <div class="markdown-body">
+          <pre>$('#basic-modal').txnModal();</pre>
+        </div>
+      </div>
+      <div class="row-inner">
+        <button id="click-basic-modal-btn" class="sample-button">Basic Empty Modal</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-inner">
+        <div class="title-row">Normal Modal</div>
+        <div class="text-row">Basic Modal with Overlapped Close Button.sample-button</div>
+        <div class="markdown-body">
+          <pre>$('#normal-modal').txnModal({ 
 	modalCloseHandlers : ['#closeModalBtn'] 
 });</pre>
+        </div>
       </div>
-      <button id="click-btn" class="sample-button">Normal Modal</button>
+      <div class="row-inner">
+        <button id="click-btn" class="sample-button">Normal Modal</button>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Normal CSS Overriden Modal</div>
-      <div class="text-row">Basic Modal with Overriden CSS and Disables scroll to illustrate.</div>
-      <div class="markdown-body">
-        <pre>$('#css-modal').txnModal({ 
+      <div class="row-inner">
+        <div class="title-row">Normal CSS Overriden Modal</div>
+        <div class="text-row">Basic Modal with Overriden CSS and Disables scroll to illustrate.</div>
+        <div class="markdown-body">
+          <pre>$('#css-modal').txnModal({ 
 	modalCss : { 
 		'height' : '450px',
 		'width' : '750px',
 		'left' : '50%',
 		'top' : '50%',
 		'margin-left' : '-375px',
-		'margin-top' : '-225px'
-	},
-	targetScrollEnabled : false
+		'margin-top' : '-225px',
+		'border-radius' : '3px',
+		'background' : '#f6f6f6'
+	}
 });</pre>
+        </div>
       </div>
-      <button id="click-css-btn" class="sample-button">Custom CSS Modal</button>
+      <div class="row-inner">
+        <button id="click-css-btn" class="sample-button">Custom CSS Modal</button>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Auto Centering Modal</div>
-      <div class="text-row">Auto Centers the Modal Depending on the CSS Property</div>
-      <div class="markdown-body">
-        <pre>// Both Centering
+      <div class="row-inner">
+        <div class="title-row">Auto Centering Modal</div>
+        <div class="text-row">Auto Centers the Modal Depending on the CSS Property</div>
+        <div class="markdown-body">
+          <pre>// Both Centering
 $('#auto-modal-1').txnModal({ 
 	modalCss : { 
 		'height' : '450px',
@@ -127,93 +160,85 @@ $('#auto-modal-3').txnModal({
 	},
 	modalAutoCenter: true
 });</pre>
+        </div>
       </div>
-      <button id="click-auto-1-btn" class="sample-button">Open XY Centering</button>
-      <button id="click-auto-2-btn" class="sample-button">Open X Centering</button>
-      <button id="click-auto-3-btn" class="sample-button">Open Y Centering</button>
+      <div class="row-inner">
+        <button id="click-auto-1-btn" class="sample-button">Open XY Centering</button>
+        <button id="click-auto-2-btn" class="sample-button">Open X Centering</button>
+        <button id="click-auto-3-btn" class="sample-button">Open Y Centering</button>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Normal Overflown Modal [Buggy]</div>
-      <div class="text-row">Basic Modal with Overflowing Content</div>
-      <div class="markdown-body">
-        <pre>$('#overflow-modal').txnModal({
+      <div class="row-inner">
+        <div class="title-row">Normal Overflown Modal</div>
+        <div class="text-row">Basic Modal with Overflowing Content</div>
+        <div class="markdown-body">
+          <pre>$('#overflow-modal').txnModal({
 	targetScrollEnabled : false
 });</pre>
+        </div>
       </div>
-      <button id="click-overflow-btn" class="sample-button">Normal Overflow Modal</button>
+      <div class="row-inner">
+        <button id="click-overflow-btn" class="sample-button">Normal Overflow Modal</button>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Target Modal #1</div>
-      <div class="text-row">Modal with Target Attribute Set to some Absolute Container</div>
-      <div class="markdown-body">
-        <pre>$('#target-modal').txnModal({ 
+      <div class="row-inner">
+        <div class="title-row">Target Modal #1</div>
+        <div class="text-row">Modal with Target Attribute Set to some Absolute Container</div>
+        <div class="markdown-body">
+          <pre>$('#target-modal').txnModal({ 
 	modalCloseHandlers : ['#closeModalBtn2'],
 	modalTargetContainer : '#temp-parent-container'
 });</pre>
+        </div>
       </div>
-      <div id="temp-parent-container" class="container-sample">Target Modal #1</div>
-      <button id="click-target-1-btn" class="sample-button">Open in Fixed/Absoluted Target Window</button>
+      <div class="row-inner">
+        <div id="temp-parent-container" class="container-sample">Target Modal #1</div>
+      </div>
+      <div class="row-inner">
+        <button id="click-target-1-btn" class="sample-button">Open in Fixed/Absoluted Target Window</button>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Target Modal #2</div>
-      <div class="text-row">Modal with Target Attribute Set to some Local Container</div>
-      <div class="markdown-body">
-        <pre>$('#target-modal-2').txnModal({ 
+      <div class="row-inner">
+        <div class="title-row">Target Modal #2</div>
+        <div class="text-row">Modal with Target Attribute Set to some Local Container</div>
+        <div class="markdown-body">
+          <pre>$('#target-modal-2').txnModal({ 
 	modalCloseHandlers : ['#closeModalBtn3'],
 	modalTargetContainer : '#temp-parent-container-2'
 });</pre>
+        </div>
       </div>
-      <button id="click-target-2-btn" class="sample-button">Open in Local Target Window</button>
-      <div id="temp-parent-container-2" class="container-sample">Target Modal #2</div>
+      <div class="row-inner">
+        <button id="click-target-2-btn" class="sample-button">Open in Local Target Window</button>
+      </div>
+      <div class="row-inner">
+        <div id="temp-parent-container-2" class="container-sample">Target Modal #2</div>
+      </div>
     </div>
     <div class="row">
-      <div class="title-row">Target Modal #3</div>
-      <div class="text-row">Modal with Target Attribute and Combined with Awesome Auto Centering</div>
-      <div class="markdown-body">
-        <pre>$('#target-modal-3').txnModal({ 
+      <div class="row-inner">
+        <div class="title-row">Target Modal #3</div>
+        <div class="text-row">Modal with Target Attribute and Combined with Awesome Auto Centering</div>
+        <div class="markdown-body">
+          <pre>$('#target-modal-3').txnModal({ 
 	modalCloseHandlers : ['#closeModalBtn4'],
 	modalTargetContainer : '#temp-parent-container-3',
 	modalCss : { 
-		'height' : '100px',
-		'width' : '150px'
+		'height' : '150px',
+		'width' : '250px'
 	},
 	modalAutoCenter: true
 });</pre>
+        </div>
       </div>
-      <button id="click-target-3-btn" class="sample-button">Open in Local Target Window</button>
-      <div id="temp-parent-container-3" class="container-sample">Target Modal #3</div>
-    </div>
-    <div class="row">
-      <div class="title-row">Target Modal #4</div>
-      <div class="text-row">Modal with Target Attribute and Combined with Awesome Auto Centering</div>
-      <div class="markdown-body">
-        <pre>$('#target-modal-3').txnModal({ 
-	modalCloseHandlers : ['#closeModalBtn5'],
-	modalTargetContainer : '#temp-parent-container-4',
-	modalCss : { 
-		'height' : '100px',
-		'width' : '150px'
-	},
-	modalAutoCenter: true,
-	targetScrollEnabled: false
-});</pre>
+      <div class="row-inner">
+        <button id="click-target-3-btn" class="sample-button">Open in Local Target Window</button>
       </div>
-      <button id="click-target-4-btn" class="sample-button">Open in Local Overflowing Target Window</button>
-      <div id="temp-parent-container-4" class="container-sample"><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p><br/>
-        <p>Target Modal #4</p>
+      <div class="row-inner">
+        <div id="temp-parent-container-3" class="container-sample">Target Modal #3</div>
       </div>
     </div>
   </body>

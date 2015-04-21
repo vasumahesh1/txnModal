@@ -3,6 +3,7 @@
 
 > **IMPORTANT:**
 > txnModal is **under construction**.
+> Well most of it works.
 > Hence might be buggy.
 
 #### Features
@@ -11,10 +12,11 @@
 * Target based Modal Opening (Can Open Modals in Other HTML DOMS)
 * Customizable CSS for the Modal (If you don't want the full scale Default)
 * Auto Centering - X & Y Independently.
+* Overlay - Optional Overlay
 * Attachable Hooks for Open and Close events
 
 #### Version
-0.0.5
+0.0.6
 
 #### Prerequisites
 
@@ -22,6 +24,10 @@ txnModal uses Animate.css and Jquery.
 
 * [jQuery]- jQuery
 * [Animate] - Animate.css Library
+
+#### Browser Support
+
+Chrome 30+, Firefox 34+, Safari (Not Tested Yet), IE (Not Tested Yet)
 
 ### Basic Usage
 
@@ -76,7 +82,9 @@ var defaultOptions = {
     modalWrapperClass: 'txn-modal-wrapper',
     modalCloseHandlers: [],
     modalCss: {},
-    targetScrollEnabled: true,
+    overlayWrapperClass: 'txn-overlay',
+    overlayEnabled: true,
+    targetScrollEnabled: false,
     onOpen: function() {},
     onClose: function() {}
 };
@@ -109,6 +117,12 @@ $('#target-modal-2').txnModal({
 
 ##### modalWrapperClass
 Class for the Wrapper on which animation is performed. Use this If you want to
+add some extra CSS Classes for other JQuery or CSS needs.
+
+---
+
+##### overlayWrapperClass
+Class for the Overlay which is Appended at the same level as the Modal. Use this If you want to
 add some extra CSS Classes for other JQuery or CSS needs.
 
 ---
@@ -193,6 +207,17 @@ $('#overflow-modal').txnModal({
 
 ---
 
+##### overlayEnabled
+If you don't want the faded Overlay. You can set this option to false.
+
+```js
+$('#overflow-modal').txnModal({
+    overlayEnabled : false
+});
+```
+
+---
+
 ##### onOpen
 onOpen Event Hook
 
@@ -203,9 +228,9 @@ onClose Event Hook
 
 Known Issues, Bugs & Fix Status
 ----
-* Outside Click doesn't Close the Modal [Yet]
+* ~~Outside Click doesn't Close the Modal [Yet]~~
 * Responsive Issues maybe present with some Modals with Fixed Width and Heights
-* Overflow Modal's Default Close Button is not Fixed at the Top Right
+* ~~Overflow Modal's Default Close Button is not Fixed at the Top Right~~
 * ~~Overflow Dialog has Scroll Issues~~
 * ~~Cannot Auto Center Modals with `modalTargetContainer` property~~
 

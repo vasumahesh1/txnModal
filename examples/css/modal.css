@@ -1,24 +1,39 @@
+*
+{
+	box-sizing:border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body
 {
-	overflow-x: hidden;
+	overflow-x: hidden !important;
 	font-family: 'Arial';
 }
 
 .markdown-body 
 {
-    min-width: 200px;
-    max-width: 790px;
+    width: 100%;
+    max-width: 980px;
     padding: 30px;
+    background: #49483E;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.markdown-body .highlight pre, .markdown-body pre
+{
+	background: none;
 }
 
 .container-sample
 {
 	position: relative;
-	min-height: 150px;
-	height: 150px;
-	width: 250px;
+	min-height: 200px;
+	height: 200px;
+	width: 350px;
 	display: inline-block;
-	text-align: center;
+	padding: 10px;
 	background: #fff;
 	border:solid 1px #ddd;
 }
@@ -47,11 +62,23 @@ body
 
 .row
 {
-	padding: 50px 10px;
+	padding: 20px 10px;
 	display: inline-block;
 	width: 100%;
 	border-bottom: solid 1px #f6f6f6;
 
+}
+
+.row:nth-child(2n)
+{
+	background: #f9f9f9;
+}
+
+.row-inner
+{
+	padding: 10px 10px;
+	display: inline-block;
+	width: 100%;
 }
 
 .title-row
@@ -72,12 +99,12 @@ body
 
 button.sample-button
 {
-	border: solid 1px #046380;
-	color: #046380;
-	background: none;
+	border: solid 1px #FA951F;
+	background: #FA951F;
+	color: #fff;
 	font-weight: 300;
 	border-radius: 3px;
-	padding: 5px 10px;
+	padding: 7px 12px;
 	cursor: pointer;
 }
 
@@ -85,7 +112,6 @@ button.sample-button:hover
 {
 	transition:all ease 0.3s;
 	-webkit-transition:all ease 0.3s;
-	border: solid 1px #002F2F;
-	color: #002F2F;
-	background: #e8e8e8;
+	border: solid 1px #FD971F;
+	background: #FD971F;
 }

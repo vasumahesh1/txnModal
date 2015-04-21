@@ -4,6 +4,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
+      options: {
+        compress: {
+          drop_console: true
+        }
+      },
       build: {
         src: ['src/txnModal.js'],
         dest: 'build/txn-modal.min.js'
@@ -20,8 +25,8 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      files: ['<%= uglify.build.src %>'],
+      tasks: ['jshint' , 'uglify']
     }
   });
 
@@ -33,5 +38,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint']);
   grunt.registerTask('build', ['jshint', 'uglify']);
   grunt.registerTask('dist', ['uglify']);
+  grunt.registerTask('dev', ['watch']);
 
 };

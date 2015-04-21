@@ -15,7 +15,9 @@ $(document).ready(function(){
 			'left' : '50%',
 			'top' : '50%',
 			'margin-left' : '-375px',
-			'margin-top' : '-225px'
+			'margin-top' : '-225px',
+			'border-radius' : '3px',
+			'background' : '#f6f6f6'
 		},
 		targetScrollEnabled : false
 	});
@@ -60,21 +62,10 @@ $(document).ready(function(){
 		modalCloseHandlers : ['#closeModalBtn4'],
 		modalTargetContainer : '#temp-parent-container-3',
 		modalCss : { 
-			'height' : '100px',
-			'width' : '150px'
+			'height' : '150px',
+			'width' : '250px'
 		},
 		modalAutoCenter: true
-	});
-
-	$('#target-modal-4').txnModal({ 
-		modalCloseHandlers : ['#closeModalBtn5'],
-		modalTargetContainer : '#temp-parent-container-4',
-		modalCss : { 
-			'height' : '100px',
-			'width' : '150px'
-		},
-		modalAutoCenter: true,
-		targetScrollEnabled: false
 	});
 
 	$('#click-btn').click(function(){
@@ -99,10 +90,6 @@ $(document).ready(function(){
 
 	$('#click-target-3-btn').click(function(){
 		$('#target-modal-3').showModal();
-	});
-
-	$('#click-target-4-btn').click(function(){
-		$('#target-modal-4').showModal();
 	});
 
 	$('#click-auto-1-btn').click(function(){

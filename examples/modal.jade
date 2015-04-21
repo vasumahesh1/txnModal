@@ -10,202 +10,186 @@ html
 		// JQuery Required
 		script(src='http://code.jquery.com/jquery-2.1.3.min.js')
 		// Main Modal Plugin
-		script(src='../src/txnModal.js')
+		script(src='../build/txn-modal.min.js')
 		// Various Example Bootstraps
 		script(type='text/javascript', src='js/modal-bootstrap.js')
 	body
 		#normal-modal
-			p Normal Full Scale Modal
-			button.sample-button#closeModalBtn Close this
+			.row-inner
+				p Normal Full Scale Modal
+				button.sample-button#closeModalBtn Close this
 		#css-modal
-			p CSS Overriden Modal
+			.row-inner
+				p CSS Overriden Modal
 		#auto-modal-1
-			p Auto Center Modal
+			.row-inner
+				p Auto Center Modal
 		#auto-modal-2
-			p Auto Center Modal
+			.row-inner
+				p Auto Center Modal
 		#auto-modal-3
-			p Auto Center Modal
+			.row-inner
+				p Auto Center Modal
 		#target-modal
-			p Target Modal
-			button.sample-button#closeModalBtn2 Close this
+			.row-inner
+				p Target Modal
+				button.sample-button#closeModalBtn2 Close this
 		#target-modal-2
-			p Target Modal
-			button.sample-button#closeModalBtn3 Close this
+			.row-inner
+				p Target Modal
+				button.sample-button#closeModalBtn3 Close this
 		#target-modal-3
-			p Target Modal
-			button.sample-button#closeModalBtn4 Close this
-		#target-modal-4
-			p Target Modal
-			button.sample-button#closeModalBtn5 Close this
+			.row-inner
+				p(style='margin:0px;') Target Modal
+				button.sample-button#closeModalBtn4 Close this
 		#basic-modal 
-			p Very Basic Modal
+			.row-inner
+				p Very Basic Modal
 		#overflow-modal 
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
-			p.overflow-text-sample Overflow Text
+			.row-inner
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
+				p.overflow-text-sample Overflow Text
 		.row
-			.title-row Basic Modal
-			.text-row Modal with nothing Overriden
-			.markdown-body
-				pre.
-					$('#basic-modal').txnModal();
-			button.sample-button#click-basic-modal-btn Basic Empty Modal
+			h3 txnModal - Examples
 		.row
-			.title-row Normal Modal
-			.text-row Basic Modal with Overlapped Close Button.sample-button
-			.markdown-body
-				pre.
-					$('#normal-modal').txnModal({ 
-						modalCloseHandlers : ['#closeModalBtn'] 
-					});
-			button.sample-button#click-btn Normal Modal
+			.row-inner
+				.title-row Basic Modal
+				.text-row Modal with nothing Overriden
+				.markdown-body
+					pre.
+						$('#basic-modal').txnModal();
+			.row-inner
+				button.sample-button#click-basic-modal-btn Basic Empty Modal
 		.row
-			.title-row Normal CSS Overriden Modal
-			.text-row Basic Modal with Overriden CSS and Disables scroll to illustrate.
-			.markdown-body
-				pre.
-					$('#css-modal').txnModal({ 
-						modalCss : { 
-							'height' : '450px',
-							'width' : '750px',
-							'left' : '50%',
-							'top' : '50%',
-							'margin-left' : '-375px',
-							'margin-top' : '-225px'
-						},
-						targetScrollEnabled : false
-					});
-			button.sample-button#click-css-btn Custom CSS Modal
+			.row-inner
+				.title-row Normal Modal
+				.text-row Basic Modal with Overlapped Close Button.sample-button
+				.markdown-body
+					pre.
+						$('#normal-modal').txnModal({ 
+							modalCloseHandlers : ['#closeModalBtn'] 
+						});
+			.row-inner
+				button.sample-button#click-btn Normal Modal
 		.row
-			.title-row Auto Centering Modal
-			.text-row Auto Centers the Modal Depending on the CSS Property
-			.markdown-body
-				pre.
-					// Both Centering
-					$('#auto-modal-1').txnModal({ 
-						modalCss : { 
-							'height' : '450px',
-							'width' : '750px'
-						},
-						modalAutoCenter: true
-					});
+			.row-inner
+				.title-row Normal CSS Overriden Modal
+				.text-row Basic Modal with Overriden CSS and Disables scroll to illustrate.
+				.markdown-body
+					pre.
+						$('#css-modal').txnModal({ 
+							modalCss : { 
+								'height' : '450px',
+								'width' : '750px',
+								'left' : '50%',
+								'top' : '50%',
+								'margin-left' : '-375px',
+								'margin-top' : '-225px',
+								'border-radius' : '3px',
+								'background' : '#f6f6f6'
+							}
+						});
+			.row-inner
+				button.sample-button#click-css-btn Custom CSS Modal
+		.row
+			.row-inner
+				.title-row Auto Centering Modal
+				.text-row Auto Centers the Modal Depending on the CSS Property
+				.markdown-body
+					pre.
+						// Both Centering
+						$('#auto-modal-1').txnModal({ 
+							modalCss : { 
+								'height' : '450px',
+								'width' : '750px'
+							},
+							modalAutoCenter: true
+						});
 
-					// Only X Axis Centering
-					$('#auto-modal-2').txnModal({ 
-						modalCss : { 
-							'height' : '450px',
-							'width' : '750px',
-							'top' : '10px'
-						},
-						modalAutoCenter: true
-					});
+						// Only X Axis Centering
+						$('#auto-modal-2').txnModal({ 
+							modalCss : { 
+								'height' : '450px',
+								'width' : '750px',
+								'top' : '10px'
+							},
+							modalAutoCenter: true
+						});
 
-					// Only Y Axis Centering
-					$('#auto-modal-3').txnModal({ 
-						modalCss : { 
-							'height' : '450px',
-							'width' : '750px',
-							'left' : '10px'
-						},
-						modalAutoCenter: true
-					});
-			button.sample-button#click-auto-1-btn Open XY Centering
-			button.sample-button#click-auto-2-btn Open X Centering
-			button.sample-button#click-auto-3-btn Open Y Centering
+						// Only Y Axis Centering
+						$('#auto-modal-3').txnModal({ 
+							modalCss : { 
+								'height' : '450px',
+								'width' : '750px',
+								'left' : '10px'
+							},
+							modalAutoCenter: true
+						});
+			.row-inner
+				button.sample-button#click-auto-1-btn Open XY Centering
+				button.sample-button#click-auto-2-btn Open X Centering
+				button.sample-button#click-auto-3-btn Open Y Centering
 		.row
-			.title-row Normal Overflown Modal [Buggy]
-			.text-row Basic Modal with Overflowing Content
-			.markdown-body
-				pre.
-					$('#overflow-modal').txnModal({
-						targetScrollEnabled : false
-					});
-			button.sample-button#click-overflow-btn Normal Overflow Modal
+			.row-inner
+				.title-row Normal Overflown Modal
+				.text-row Basic Modal with Overflowing Content
+				.markdown-body
+					pre.
+						$('#overflow-modal').txnModal({
+							targetScrollEnabled : false
+						});
+			.row-inner
+				button.sample-button#click-overflow-btn Normal Overflow Modal
 		.row
-			.title-row Target Modal #1
-			.text-row Modal with Target Attribute Set to some Absolute Container
-			.markdown-body
-				pre.
-					$('#target-modal').txnModal({ 
-						modalCloseHandlers : ['#closeModalBtn2'],
-						modalTargetContainer : '#temp-parent-container'
-					});
-			div.container-sample#temp-parent-container Target Modal #1
-			button.sample-button#click-target-1-btn Open in Fixed/Absoluted Target Window
+			.row-inner
+				.title-row Target Modal #1
+				.text-row Modal with Target Attribute Set to some Absolute Container
+				.markdown-body
+					pre.
+						$('#target-modal').txnModal({ 
+							modalCloseHandlers : ['#closeModalBtn2'],
+							modalTargetContainer : '#temp-parent-container'
+						});
+			.row-inner
+				div.container-sample#temp-parent-container Target Modal #1
+			.row-inner
+				button.sample-button#click-target-1-btn Open in Fixed/Absoluted Target Window
 		.row
-			.title-row Target Modal #2
-			.text-row Modal with Target Attribute Set to some Local Container
-			.markdown-body
-				pre.
-					$('#target-modal-2').txnModal({ 
-						modalCloseHandlers : ['#closeModalBtn3'],
-						modalTargetContainer : '#temp-parent-container-2'
-					});
-			button.sample-button#click-target-2-btn Open in Local Target Window
-			div.container-sample#temp-parent-container-2 Target Modal #2
+			.row-inner
+				.title-row Target Modal #2
+				.text-row Modal with Target Attribute Set to some Local Container
+				.markdown-body
+					pre.
+						$('#target-modal-2').txnModal({ 
+							modalCloseHandlers : ['#closeModalBtn3'],
+							modalTargetContainer : '#temp-parent-container-2'
+						});
+			.row-inner
+				button.sample-button#click-target-2-btn Open in Local Target Window
+			.row-inner
+				div.container-sample#temp-parent-container-2 Target Modal #2
 		.row
-			.title-row Target Modal #3
-			.text-row Modal with Target Attribute and Combined with Awesome Auto Centering
-			.markdown-body
-				pre.
-					$('#target-modal-3').txnModal({ 
-						modalCloseHandlers : ['#closeModalBtn4'],
-						modalTargetContainer : '#temp-parent-container-3',
-						modalCss : { 
-							'height' : '100px',
-							'width' : '150px'
-						},
-						modalAutoCenter: true
-					});
-			button.sample-button#click-target-3-btn Open in Local Target Window
-			div.container-sample#temp-parent-container-3 Target Modal #3
-		.row
-			.title-row Target Modal #4
-			.text-row Modal with Target Attribute and Combined with Awesome Auto Centering
-			.markdown-body
-				pre.
-					$('#target-modal-3').txnModal({ 
-						modalCloseHandlers : ['#closeModalBtn5'],
-						modalTargetContainer : '#temp-parent-container-4',
-						modalCss : { 
-							'height' : '100px',
-							'width' : '150px'
-						},
-						modalAutoCenter: true,
-						targetScrollEnabled: false
-					});
-			button.sample-button#click-target-4-btn Open in Local Overflowing Target Window
-			div.container-sample#temp-parent-container-4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
-				br
-				p Target Modal #4
+			.row-inner
+				.title-row Target Modal #3
+				.text-row Modal with Target Attribute and Combined with Awesome Auto Centering
+				.markdown-body
+					pre.
+						$('#target-modal-3').txnModal({ 
+							modalCloseHandlers : ['#closeModalBtn4'],
+							modalTargetContainer : '#temp-parent-container-3',
+							modalCss : { 
+								'height' : '150px',
+								'width' : '250px'
+							},
+							modalAutoCenter: true
+						});
+			.row-inner
+				button.sample-button#click-target-3-btn Open in Local Target Window
+			.row-inner
+				div.container-sample#temp-parent-container-3 Target Modal #3
