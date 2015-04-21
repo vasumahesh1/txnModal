@@ -128,7 +128,12 @@
 				for (var optionCssKey in optionCss) {
 					if (optionCssKey == 'top' || optionCssKey == 'bottom') hasVertical = true;
 					if (optionCssKey == 'left' || optionCssKey == 'right') hasHorizontal = true;
-					$element.parent().css(optionCssKey, optionCss[optionCssKey]);
+					if (optionCssKey == 'height' || optionCssKey == 'width') {
+						$element.parent().css('max-' + optionCssKey, optionCss[optionCssKey]);
+						$element.parent().css(optionCssKey, '100%');
+					} else {
+						$element.parent().css(optionCssKey, optionCss[optionCssKey]);
+					}
 				}
 				if (modalPlugin.finalOptions.modalAutoCenter === true) {
 					if (hasVertical === false) {
