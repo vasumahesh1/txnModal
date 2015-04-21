@@ -4,9 +4,6 @@
 # old skool
 .svn
 
-# Exclude the build directory
-build/*
-
 # Exclude temp nibs and swap files
 *~.nib
 *.swp
